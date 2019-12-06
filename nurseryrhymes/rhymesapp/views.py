@@ -1,5 +1,9 @@
+from django.conf import settings
+import stripe
 from django.contrib.auth import login, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from django.views.generic import TemplateView
+
 from .models import *
 from .forms import *
 from .forms import RegisterForm
@@ -8,9 +12,9 @@ from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import ContactForm
-from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
+from django.contrib.auth.forms import PasswordChangeForm
 from .forms import EditProfileForm
-from django.conf import settings
+
 
 
 now = timezone.now()
@@ -38,27 +42,35 @@ def register(request):
     return render(request, 'rhymesapp/register.html', {'rhymesapp': register})
 
 
+
 def nurseryList(request):
     return render(request, 'rhymesapp/nurseryList.html', {'rhymesapp': nurseryList})
+
 
 
 def nurseryPage(request):
     return render(request, 'rhymesapp/nurseryPage.html', {'rhymesapp': nurseryPage})
 
+
 def londonBridge(request):
     return render(request, 'rhymesapp/londonBridge.html', {'rhymesapp': londonBridge})
+
 
 def littleStar(request):
     return render(request, 'rhymesapp/littleStar.html', {'rhymesapp': littleStar})
 
+
 def jackJill(request):
     return render(request, 'rhymesapp/jackJill.html', {'rhymesapp': jackJill})
+
 
 def itsySpider(request):
     return render(request, 'rhymesapp/itsySpider.html', {'rhymesapp': itsySpider})
 
+
 def humptyDumpty(request):
     return render(request, 'rhymesapp/humptyDumpty.html', {'rhymesapp': humptyDumpty})
+
 
 def hickoryDock(request):
     return render(request, 'rhymesapp/hickoryDock.html', {'rhymesapp': humptyDumpty})
@@ -69,12 +81,21 @@ def upgrade(request):
     return render(request, 'rhymesapp/upgrade.html', {'rhymesapp': upgrade})
 
 
+class HomePageView(TemplateView):
+    template_name = 'rhymesapp/upgrade.html'
+
+    def get_context_data(self, **kwargs): # new
+        context = super().get_context_data(**kwargs)
+        context['key'] = settings.STRIPE_PUBLISHABLE_KEY
+        return context
+
 def account_created(request):
     return render(request, 'rhymesapp/account_created.html', {'rhymesapp': account_created})
 
 
 def email(request):
     return render(request, 'rhymesapp/contact.html', {'rhymesapp': email})
+
 
 
 
@@ -148,6 +169,7 @@ def emailView(request):
     return render(request, 'rhymesapp/contact.html', {'form': form})
 
 
+
 def infoView(request):
     args = {'user': request.user}
     return render(request, 'rhymesapp/account_information.html', args)
@@ -183,6 +205,5 @@ def change_password(request):
         form = PasswordChangeForm(user=request.user)
         args = {'form': form}
         return render(request, 'rhymesapp/change_password.html', args)
-
 
 

@@ -1,43 +1,23 @@
 {% extends 'rhymesapp/base.html' %}
-
 {% block content %}
-  <div>
-    <h2>Upgrade Now</h2>
-    <form action="/charge" method="post">
-      <script
-        src="https://checkout.stripe.com/checkout.js"
-        class="stripe-button"
-        data-key="{{ key }}"
-        data-description="A Flask Charge"
-        data-amount="500"
-        data-locale="auto">
-      </script>
-    </form>
-  </div>
-{% endblock %}
-
-
-{% extends 'rhymesapp/base.html' %}
 {% load staticfiles %}
-{% block content %}
-
 
 <style>
 
-    .comparison {
+.comparison {
   max-width:940px;
   margin:0 auto;
   font:13px/1.4 "Helvetica Neue",Helvetica,Arial,sans-serif;
   text-align:center;
   padding:10px;
-        background: #F3EBF6;
+  background: #F3EBF6;
 }
 
 .comparison table {
   background: #F3EBF6;
-  width:100%;
+  width:200%;
   border-collapse: collapse;
-  border-spacing: 0;
+  border-spacing: 3px;
   table-layout: fixed;
   border-bottom:1px solid #CCC;
 }
@@ -45,11 +25,11 @@
 .comparison td, .comparison th {
   border-right:1px solid #CCC;
   empty-cells: show;
-  padding:10px;
+  padding:25px;
 }
 
 .compare-heading {
-    background: #F3EBF6;
+  background: #F3EBF6;
   font-size:18px;
   font-weight:bold !important;
   border-bottom:0 !important;
@@ -60,22 +40,17 @@
   display:none;
 }
 
-.comparison .compare-row {
+.test {
+  padding-top: 20px;
+  padding-right: 611px;
+}
+
+    .comparison .compare-row {
   background:#F5F5F5;
 }
 
 .comparison .tickblue {
-  color:#0078C1;
-}
-
-.comparison .tickgreen {
-  color: #F3EBF6;
-}
-
-.comparison th {
-  font-weight:normal;
-  padding:0;
-  border-bottom:1px solid #CCC;
+  color: #02c155;
 }
 
 .comparison tr td:first-child {
@@ -94,115 +69,14 @@
   border-right:0;
 }
 
-.comparison .qbse {
-  background: #F3EBF6;
-  color: #202020;
-  text-decoration-style: solid;
-  border-top-left-radius: 3px;
-  border-left:0px;
-}
-
-.comparison .qbo {
-  background: #F3EBF6;
-  border-top-right-radius: 3px;
-  border-right:0px;
-}
-
 .comparison .price-info {
   padding:5px 15px 15px 15px;
-}
-
-.comparison .price-was {
-  color:#999;
-  text-decoration: line-through;
-}
-
-.comparison .price-now, .comparison .price-now span {
-  color:darkblue;
 }
 
 .comparison .price-now span {
   font-size:40px;
 }
 
-.comparison .price-small {
-    font-size: 18px !important;
-    position: relative;
-    top: -11px;
-    left: 2px;
-}
-
-.comparison .price-buy {
-  background: coral;
-  padding:10px 20px;
-  font-size:12px;
-  display:inline-block;
-  color:#FFF;
-  text-decoration:none;
-  border-radius:3px;
-  text-transform:uppercase;
-  margin:5px 0 10px 0;
-}
-
-.comparison .price-try {
-  font-size:12px;
-}
-
-.comparison .price-try a {
-  color:#202020;
-}
-
-@media (max-width: 767px) {
-  .comparison td:first-child, .comparison th:first-child {
-    display: none;
-  }
-  .comparison tbody tr:nth-child(odd) {
-    display:table-row;
-    background:#F7F7F7;
-  }
-  .comparison .row {
-    background:#FFF;
-  }
-  .comparison td, .comparison th {
-    border:1px solid #CCC;
-  }
-  .price-info {
-  border-top:0 !important;
-
-}
-
-}
-
-@media (max-width: 639px) {
-  .comparison .price-buy {
-    padding:5px 10px;
-  }
-  .comparison td, .comparison th {
-    padding:10px 5px;
-  }
-  .comparison .hide-mobile {
-    display:none;
-  }
-  .comparison .price-now span {
-  font-size:16px;
-}
-
-.comparison .price-small {
-    font-size: 16px !important;
-    top: 0;
-    left: 0;
-}
-  .comparison .qbse, .comparison .qbo {
-    font-size:12px;
-    padding:10px 5px;
-  }
-  .comparison .price-buy {
-    margin-top:10px;
-  }
-  .compare-heading {
-  font-size:13px;
-}
-}
 </style>
 
 <body style="background: #F3EBF6">
@@ -230,9 +104,6 @@
           Basic
         </th>
         <th class="compare-heading">
-          Standard
-        </th>
-        <th class="compare-heading">
           Premium
         </th>
 
@@ -243,20 +114,9 @@
           <div class="price-was"></div>
           <div class="price-now"><span>Free<span class="price-small"></span></span>
           </div>
-          <div><a href="#" class="price-buy">Current <span class="hide-mobile">Plan</span></a></div>
-          <div class="price-try"><span class="hide-mobile">or </span><a href="#">try <span class="hide-mobile">it free</span></a></div>
         </th>
         <th class="price-info">
-          <div class="price-was">Was $6.00</div>
-          <div class="price-now"><span>$4<span class="price-small">.99</span></span> /month</div>
-          <div><a href="#" class="price-buy">Upgrade <span class="hide-mobile">Now</span></a></div>
-          <div class="price-try"><span class="hide-mobile">or </span><a href="#">try <span class="hide-mobile">it free</span></a></div>
-        </th>
-        <th class="price-info">
-          <div class="price-was">Was $15.00</div>
           <div class="price-now"><span>$9<span class="price-small">.99</span></span> /month</div>
-          <div><a href="#" class="price-buy">Upgrade <span class="hide-mobile">Now</span></a></div>
-          <div class="price-try"><span class="hide-mobile">or </span><a href="#">try <span class="hide-mobile">it free</span></a></div>
         </th>
       </tr>
     </thead>
@@ -271,7 +131,6 @@
         <td>Log In & Sign Up</td>
         <td><span class="tickblue">✔</span></td>
         <td><span class="tickblue">✔</span></td>
-        <td><span class="tickblue">✔</span></td>
 
       </tr>
       <tr>
@@ -280,7 +139,6 @@
       </tr>
       <tr>
         <td>Read Nursery Ryhmes</td>
-        <td><span class="tickblue">✔</span></td>
         <td><span class="tickblue">✔</span></td>
         <td><span class="tickblue">✔</span></td>
 
@@ -293,7 +151,6 @@
         <td>Download Nursery PDF</td>
         <td></td>
         <td><span class="tickblue">✔</span></td>
-        <td><span class="tickblue">✔</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -302,24 +159,34 @@
       <tr>
         <td>Download Nursery Audio</td>
         <td></td>
-        <td></td>
         <td><span class="tickblue">✔</span></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td colspan="4">Works on PC, Mac & mobile</td>
       </tr>
       <tr class="compare-row">
         <td>Multi-device downloads</td>
         <td></td>
-        <td></td>
         <td><span class="tickblue">✔</span></td>
-
-
       </tr>
 
     </tbody>
   </table>
+
+  <div class = 'test'>
+    <form action="/charge" method="post">
+        <script
+        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="{{ key }}"
+        data-description="Rhyme Membership"
+        data-amount="999"
+        data-locale="auto">
+      </script>
+    </form>
+  </div>
+
+
+
 </div>
 
 </div>

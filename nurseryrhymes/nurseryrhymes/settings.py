@@ -22,6 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '$adei)f9$5q$3ti7a@haih=wcy_wavso#)!m--d$3avu4ksv0+'
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -43,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
 
 ]
+
+
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
@@ -140,7 +143,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 LOGIN_REDIRECT_URL = '/'
 
-
 STRIPE_SECRET_KEY = 'sk_test_uvNqdYBpsagnBle2e6gR85Yq0022FyqmHj'
-
 STRIPE_PUBLISHABLE_KEY = 'pk_test_022MxPqfKeK5MwDGg2Xl8wHy00bvJfKvlt'
