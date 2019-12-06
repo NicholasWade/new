@@ -139,3 +139,8 @@ LOGOUT_REDIRECT_URL = '/'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 LOGIN_REDIRECT_URL = '/'
+
+
+STRIPE_SECRET_KEY = 'sk_test_uvNqdYBpsagnBle2e6gR85Yq0022FyqmHj'
+
+STRIPE_PUBLISHABLE_KEY = 'pk_test_022MxPqfKeK5MwDGg2Xl8wHy00bvJfKvlt'
