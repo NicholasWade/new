@@ -1,0 +1,12 @@
+
+{% extends 'rhymesapp/base.html' %}
+{% block content %}
+        {% for rhyme in rhymes %}
+            <div class="rhyme">
+
+                <h2>{{ rhyme.name }}</h2>
+                <h2>{{ rhyme.link | urlize }}</h2>
+
+            </div>
+        {% endfor %}
+    {% endblock %}

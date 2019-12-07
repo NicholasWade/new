@@ -207,3 +207,12 @@ def change_password(request):
         return render(request, 'rhymesapp/change_password.html', args)
 
 
+def rhymes_list(request):
+    search_term=''
+    rhymes = Rhyme.objects.filter()
+    if 'Search' in request.GET:
+        search_term = request.GET['Search']
+        rhymes = rhymes.filter(name__icontains=search_term)
+    return render(request, 'rhymesapp/rhyme_list.html', {'rhymes': rhymes, 'search_term': search_term})
+
+

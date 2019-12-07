@@ -14,6 +14,7 @@ urlpatterns = [
     path('londonBridge', views.londonBridge, name = 'londonBridge'),
     path('littleStar', views.littleStar, name = 'littleStar'),
     path('jackJill', views.jackJill, name = 'jackJill'),
+    path('rhymeslist', views.rhymes_list, name='rhymeslist'),
     path('itsySpider', views.itsySpider, name = 'itsySpider'),
     path('humptyDumpty', views.humptyDumpty, name = 'humptyDumpty'),
     path('hickoryDock', views.hickoryDock, name = 'hickoryDock'),
