@@ -25,3 +25,8 @@ class Account(models.Model):
     def __str__(self):
         return str(self.first_name)
 
+
+class Rhyme(models.Model):
+    name = models.CharField(max_length=100)
+    link = models.URLField(max_length=100)
+

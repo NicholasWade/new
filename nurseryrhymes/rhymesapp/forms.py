@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.contrib.auth.forms import User
-from .models import Account
+from .models import Account, Rhyme
 from django import forms
 
 
@@ -8,6 +8,8 @@ class AccountForm(forms.ModelForm):
    class Meta:
        model = Account
        fields = ('first_name', 'last_name', 'phone', 'email', 'zipcode')
+
+
 
 
 class RegisterForm(forms.Form):
@@ -31,3 +33,8 @@ class ContactForm(forms.Form):
     email_address = forms.EmailField()
     message = forms.CharField(widget=forms.Textarea)
 
+
+class RhymeForm(forms.ModelForm):
+    class Meta:
+        model = Rhyme
+        fields = ('name','link')
