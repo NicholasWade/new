@@ -1,12 +1,25 @@
 
 {% extends 'rhymesapp/base.html' %}
 {% block content %}
+            <div style = padding-top:20px;>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2"
+                           type="search"
+                           placeholder="Search"
+                           aria-label="Search"
+                            name="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                 </form>
+
+
+
+
         {% for rhyme in rhymes %}
-            <div class="rhyme">
+               <h3> {{ rhyme.name }}</h3>
+             <h3>   {{ rhyme.link | urlize }}</h3>
 
-                <h2>{{ rhyme.name }}</h2>
-                <h2>{{ rhyme.link | urlize }}</h2>
 
-            </div>
+
+
         {% endfor %}
     {% endblock %}
