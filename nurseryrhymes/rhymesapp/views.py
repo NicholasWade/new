@@ -1,5 +1,5 @@
 from django.conf import settings
-import stripe
+#import stripe
 from django.contrib.auth import login, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
@@ -45,35 +45,48 @@ def register(request):
 
 def nurseryList(request):
     return render(request, 'rhymesapp/nurseryList.html', {'rhymesapp': nurseryList})
-
-
-
-def nurseryPage(request):
-    return render(request, 'rhymesapp/nurseryPage.html', {'rhymesapp': nurseryPage})
-
-
 def londonBridge(request):
     return render(request, 'rhymesapp/londonBridge.html', {'rhymesapp': londonBridge})
-
-
 def littleStar(request):
     return render(request, 'rhymesapp/littleStar.html', {'rhymesapp': littleStar})
-
-
 def jackJill(request):
     return render(request, 'rhymesapp/jackJill.html', {'rhymesapp': jackJill})
-
-
 def itsySpider(request):
     return render(request, 'rhymesapp/itsySpider.html', {'rhymesapp': itsySpider})
-
-
 def humptyDumpty(request):
     return render(request, 'rhymesapp/humptyDumpty.html', {'rhymesapp': humptyDumpty})
-
-
 def hickoryDock(request):
     return render(request, 'rhymesapp/hickoryDock.html', {'rhymesapp': humptyDumpty})
+def blackSheep(request):
+    return render(request, 'rhymesapp/blackSheep.html', {'rhymesapp': blackSheep})
+def heyDiddle(request):
+    return render(request, 'rhymesapp/heyDiddle.html', {'rhymesapp': heyDiddle})
+def hotBuns(request):
+    return render(request, 'rhymesapp/hotBuns.html', {'rhymesapp': hotBuns})
+def jackNimble(request):
+    return render(request, 'rhymesapp/jackNimble.html', {'rhymesapp': jackNimble})
+def market(request):
+    return render(request, 'rhymesapp/market.hmtl', {'rhymesapp': market})
+def muffins(request):
+    return render(request, 'rhymesapp/muffins.html', {'rhymesapp': muffins})
+def peterPiper(request):
+    return render(request, 'rhymesapp/peterPiper.html', {'rhymesapp': peterPiper})
+def piggy(request):
+    return render(request, 'rhymesapp/piggy.html', {'rhymesapp': piggy})
+def rainPour(request):
+    return render(request, 'rhymesapp/rainPour.html', {'rhymesapp': rainPour})
+def ringPosies(request):
+    return render(request, 'rhymesapp/ringPosies.html', {'rhymesapp': ringPosies})
+def roses(request):
+    return render(request, 'rhymesapp/roses.html', {'rhymesapp': roses})
+def rowBoat(request):
+    return render(request, 'rhymesapp/rowBoat.html', {'rhymesapp': rowBoat})
+def sticks(request):
+    return render(request, 'rhymesapp/sticks.html', {'rhymesapp': sticks})
+def threeMice(request):
+    return render(request, 'rhymesapp/threeMice.html', {'rhymesapp': threeMice})
+def tweedle(request):
+    return render(request, 'rhymesapp/tweedle.html', {'rhymesapp': tweedle})
 
 
 #@login_required
