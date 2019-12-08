@@ -42,51 +42,90 @@ def register(request):
     return render(request, 'rhymesapp/register.html', {'rhymesapp': register})
 
 
-
 def rhymes_list(request):
     return render(request, 'rhymesapp/rhymes_list.html', {'rhymesapp': rhymes_list})
 
 
 def londonBridge(request):
     return render(request, 'rhymesapp/londonBridge.html', {'rhymesapp': londonBridge})
+
+
 def littleStar(request):
     return render(request, 'rhymesapp/littleStar.html', {'rhymesapp': littleStar})
+
+
 def jackJill(request):
     return render(request, 'rhymesapp/jackJill.html', {'rhymesapp': jackJill})
+
+
 def itsySpider(request):
     return render(request, 'rhymesapp/itsySpider.html', {'rhymesapp': itsySpider})
+
+
 def humptyDumpty(request):
     return render(request, 'rhymesapp/humptyDumpty.html', {'rhymesapp': humptyDumpty})
+
+
 def hickoryDock(request):
     return render(request, 'rhymesapp/hickoryDock.html', {'rhymesapp': humptyDumpty})
+
+@login_required
 def blackSheep(request):
     return render(request, 'rhymesapp/blackSheep.html', {'rhymesapp': blackSheep})
+
+@login_required
 def heyDiddle(request):
     return render(request, 'rhymesapp/heyDiddle.html', {'rhymesapp': heyDiddle})
+
+@login_required
 def hotBuns(request):
     return render(request, 'rhymesapp/hotBuns.html', {'rhymesapp': hotBuns})
+
+@login_required
 def jackNimble(request):
     return render(request, 'rhymesapp/jackNimble.html', {'rhymesapp': jackNimble})
+
+@login_required
 def market(request):
     return render(request, 'rhymesapp/market.html', {'rhymesapp': market})
+
+@login_required
 def muffins(request):
     return render(request, 'rhymesapp/muffins.html', {'rhymesapp': muffins})
+
+@login_required
 def peterPiper(request):
     return render(request, 'rhymesapp/peterPiper.html', {'rhymesapp': peterPiper})
+
+@login_required
 def piggy(request):
     return render(request, 'rhymesapp/piggy.html', {'rhymesapp': piggy})
+
+@login_required
 def rainPour(request):
     return render(request, 'rhymesapp/rainPour.html', {'rhymesapp': rainPour})
+
+@login_required
 def ringPosies(request):
     return render(request, 'rhymesapp/ringPosies.html', {'rhymesapp': ringPosies})
+
+@login_required
 def roses(request):
     return render(request, 'rhymesapp/roses.html', {'rhymesapp': roses})
+
+@login_required
 def rowBoat(request):
     return render(request, 'rhymesapp/rowBoat.html', {'rhymesapp': rowBoat})
+
+@login_required
 def sticks(request):
     return render(request, 'rhymesapp/sticks.html', {'rhymesapp': sticks})
+
+@login_required
 def threeMice(request):
     return render(request, 'rhymesapp/threeMice.html', {'rhymesapp': threeMice})
+
+@login_required
 def tweedle(request):
     return render(request, 'rhymesapp/tweedle.html', {'rhymesapp': tweedle})
 
