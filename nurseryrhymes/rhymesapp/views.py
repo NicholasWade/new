@@ -1,5 +1,5 @@
 from django.conf import settings
-import stripe
+#import stripe
 from django.contrib.auth import login, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
@@ -66,7 +66,7 @@ def hotBuns(request):
 def jackNimble(request):
     return render(request, 'rhymesapp/jackNimble.html', {'rhymesapp': jackNimble})
 def market(request):
-    return render(request, 'rhymesapp/market.hmtl', {'rhymesapp': market})
+    return render(request, 'rhymesapp/market.html', {'rhymesapp': market})
 def muffins(request):
     return render(request, 'rhymesapp/muffins.html', {'rhymesapp': muffins})
 def peterPiper(request):
