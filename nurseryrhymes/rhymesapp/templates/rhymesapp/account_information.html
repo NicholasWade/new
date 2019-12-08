@@ -1,0 +1,27 @@
+{% extends 'rhymesapp/base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<h1>Account Information</h1>
+{% block body %}
+    <style>
+        body {
+            background-color: #F3EBF6;
+        }
+    </style>
+<div class = 'container'>
+        <h4>Username: {{ user.username }}</h4>
+        <h4>First Name: {{ user.first_name }}</h4>
+        <h4>Last Name: {{ user.last_name }}</h4>
+        <h4>Email Address: {{ user.email }}</h4>
+
+</div>
+ <form action="account_information/edit" method="get">
+         <button type="submit" class="btn btn-success">Edit Account Information</button>
+      </form>
+<form action="change_password" method="get">
+         <button type="submit" class="btn btn-success">Change Password</button>
+      </form>
+
+
+{% endblock %}
+{% endblock %}

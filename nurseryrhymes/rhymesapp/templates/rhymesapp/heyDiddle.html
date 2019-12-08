@@ -1,0 +1,66 @@
+{% extends 'rhymesapp/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hey Diddle Diddle</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+<body>
+<style>
+    body {
+        background-color: #F3EBF6;
+    }
+    div{
+        -webkit-align-content: center;
+        align-content: center;
+    }
+</style>
+<div class="content container">
+    <h2>Hey Diddle Diddle</h2>
+    <font size = "4">
+        Hey, diddle, diddle<br>
+
+        The cat and the fiddle<br>
+
+        The cow jumped over the moon<br>
+
+        The little dog laughed to see such sport<br>
+
+        And the dish ran away with the spoon<br>
+
+        Hey, diddle, diddle<br>
+
+        The cat and the fiddle<br>
+
+        The cow jumped over the moon<br>
+
+        The little dog laughed to see such sport<br>
+
+        And the dish ran away with the spoon.<br>
+    </font>
+
+    <br>
+    <a href="{% static "theRhymes/heyDiddle.pdf" %}" download = "Download PDF">
+    <span class = 'btn btn-primary'>Download PDF</span></a>
+    <br>
+    <br>
+    <audio controls>
+        <source src = "{% static "theRhymes/Hickory.mp4" %}"
+        Your browser does not support the audio element.
+    </audio>
+</div>
+<br>
+<div class="links">
+    <a href="{% url 'rhymesapp:home' %}" class="row"><span
+        class="btn btn-primary">Go Home</span></a>
+    <br>
+
+    <a href="{% url 'rhymesapp:nurseryList' %}" class="row"><span
+        class="btn btn-primary">Go Back to Browse</span></a>
+</div>
+</body>
+</html>
+
+{% endblock %}
