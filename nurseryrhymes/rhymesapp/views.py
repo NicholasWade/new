@@ -25,7 +25,6 @@ def home(request):
                  {'rhymesapp': home})
 
 
-#@login_required
 def audio_list(request):
     return render(request, 'rhymesapp/audio_list.html',
                  {'rhymesapp': audio_list})
@@ -130,18 +129,9 @@ def tweedle(request):
     return render(request, 'rhymesapp/tweedle.html', {'rhymesapp': tweedle})
 
 
-#@login_required
 def upgrade(request):
     return render(request, 'rhymesapp/upgrade.html', {'rhymesapp': upgrade})
 
-
-class HomePageView(TemplateView):
-    template_name = 'rhymesapp/upgrade.html'
-
-    def get_context_data(self, **kwargs): # new
-        context = super().get_context_data(**kwargs)
-        context['key'] = settings.STRIPE_PUBLISHABLE_KEY
-        return context
 
 def account_created(request):
     return render(request, 'rhymesapp/account_created.html', {'rhymesapp': account_created})
@@ -149,8 +139,6 @@ def account_created(request):
 
 def email(request):
     return render(request, 'rhymesapp/contact.html', {'rhymesapp': email})
-
-
 
 
 def success(request):
