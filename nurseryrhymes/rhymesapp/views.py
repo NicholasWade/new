@@ -43,8 +43,10 @@ def register(request):
 
 
 
-def nurseryList(request):
-    return render(request, 'rhymesapp/nurseryList.html', {'rhymesapp': nurseryList})
+def rhymes_list(request):
+    return render(request, 'rhymesapp/rhymes_list.html', {'rhymesapp': rhymes_list})
+
+
 def londonBridge(request):
     return render(request, 'rhymesapp/londonBridge.html', {'rhymesapp': londonBridge})
 def littleStar(request):
@@ -226,6 +228,6 @@ def rhymes_list(request):
     if 'Search' in request.GET:
         search_term = request.GET['Search']
         rhymes = rhymes.filter(name__icontains=search_term)
-    return render(request, 'rhymesapp/rhyme_list.html', {'rhymes': rhymes, 'search_term': search_term})
+    return render(request, 'rhymesapp/rhymes_list.html', {'rhymes': rhymes, 'search_term': search_term})
 
 
