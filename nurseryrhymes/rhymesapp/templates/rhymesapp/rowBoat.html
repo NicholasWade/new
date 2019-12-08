@@ -16,8 +16,25 @@
         -webkit-align-content: center;
         align-content: center;
     }
+    #rhymeText {
+        text-align: center;
+        max-width: 960px;
+        margin: auto;
+    }
+    #button1{
+        display: block;
+        max-width: 100px;
+        margin: 0 auto;
+        margin-right: 220px;
+    }
+    #button2{
+        display: block;
+        max-width: 100px;
+        margin: 0 auto;
+        margin-right: 250px;
+    }
 </style>
-<div class="content container">
+<div class="content container" id="rhymeText">
     <h2>Row Your Boat</h2>
     <font size = "4">
         Row, row, row your boat<br>
@@ -50,11 +67,11 @@
 </div>
 <br>
 <div class="links">
-    <a href="{% url 'rhymesapp:home' %}" class="row"><span
+    <a href="{% url 'rhymesapp:home' %}" class="row" id="button1"><span
         class="btn btn-primary">Go Home</span></a>
     <br>
 
-    <a href="{% url 'rhymesapp:nurseryList' %}" class="row"><span
+    <a href="{% url 'rhymesapp:nurseryList' %}" class="row" id="button2"><span
         class="btn btn-primary">Go Back to Browse</span></a>
 </div>
 </body>
