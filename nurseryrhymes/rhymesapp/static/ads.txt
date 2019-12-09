@@ -1,0 +1,3 @@
+# This Ads.txt file was generated using Cedato's Ads.txt Generator. See additional publisher solutions @ www.cedato.com/publishers
+
+cedato.com, 501446106, RESELLER, 609e732d22edadf4
