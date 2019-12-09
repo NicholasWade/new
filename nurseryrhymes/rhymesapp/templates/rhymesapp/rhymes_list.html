@@ -1,5 +1,10 @@
 {% extends 'rhymesapp/base.html' %}
 {% block content %}
+<style>
+        body {
+            background-color: #F3EBF6;
+        }
+    </style>
             <div style = padding-top:20px;>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2"
@@ -7,7 +12,7 @@
                            placeholder="Search"
                            aria-label="Search"
                             name="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
                  </form>
 
 
@@ -22,7 +27,7 @@
         {% endfor %}
         <div class="links">
             <a href="/home/" class="row"><span
-            class="btn btn-primary">Go Home</span></a>
+            class="btn btn-success">Go Home</span></a>
         </div>
         <br>
         <br>
