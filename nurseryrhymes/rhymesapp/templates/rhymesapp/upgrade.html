@@ -175,6 +175,8 @@
 
   <div class = 'payment'>
     <form action="/charge" method="post">
+          {% csrf_token %}
+
         <script
         src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="{{ key }}"
@@ -184,6 +186,7 @@
       </script>
     </form>
   </div>
+
 
 
 

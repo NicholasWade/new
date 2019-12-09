@@ -14,8 +14,13 @@ from .forms import ContactForm
 from .forms import EditProfileForm
 from .forms import RegisterForm
 from .models import *
+from django.shortcuts import render # new
+import stripe # new
+
 
 now = timezone.now()
+stripe.api_key = settings.STRIPE_SECRET_KEY # new
+
 
 
 def home(request):
@@ -262,3 +267,7 @@ def rhymes_list(request):
     return render(request, 'rhymesapp/rhymes_list.html', {'rhymes': rhymes, 'search_term': search_term})
 
 
+def charge(request):
+    if request.method == 'POST':
+
+        return render(request, 'rhymesapp/charge.html')

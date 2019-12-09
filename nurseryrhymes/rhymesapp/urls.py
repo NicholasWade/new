@@ -44,6 +44,7 @@ urlpatterns = [
     url(r'^login/reset_password/$', PasswordResetView.as_view(), {'template_name': 'rhymesapp/reset_password.html'}, name='PasswordResetView'),
     url(r'^login/reset_password/done/$', PasswordResetDoneView.as_view(), name='PasswordResetDoneView'),
     url(r'^login/reset_password/confirm/$', PasswordResetConfirmView.as_view(), name='PasswordResetConfirmView'),
+    path('charge', views.charge, name='charge'),
 
 ]
 # (?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/
