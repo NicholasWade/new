@@ -16,8 +16,25 @@
         -webkit-align-content: center;
         align-content: center;
     }
+    #rhymeText {
+        text-align: center;
+        max-width: 960px;
+        margin: auto;
+    }
+    #button1{
+        display: block;
+        max-width: 100px;
+        margin: 0 auto;
+        margin-right: 220px;
+    }
+    #button2{
+        display: block;
+        max-width: 100px;
+        margin: 0 auto;
+        margin-right: 250px;
+    }
 </style>
-<div class="content container">
+<div class="content container" id="rhymeText">
     <h2>Hey Diddle Diddle</h2>
     <font size = "4">
         Hey, diddle, diddle<br>
@@ -47,17 +64,21 @@
     <br>
     <br>
     <audio controls>
-        <source src = "{% static "theRhymes/Hickory.mp4" %}"
+        <source src = "{% static "theRhymes/Heydiddle.mp4" %}"
         Your browser does not support the audio element.
     </audio>
 </div>
 <br>
 <div class="links">
-    <a href="{% url 'rhymesapp:home' %}" class="row"><span
+    <a href="{% url 'rhymesapp:home' %}" class="row" id="button1"><span
         class="btn btn-primary">Go Home</span></a>
     <br>
+<<<<<<< HEAD
 
     <a href="{% url 'rhymesapp:rhymes_list' %}" class="row"><span
+=======
+   <a href="{% url 'rhymesapp:rhymes_list' %}" class="row" id="button2"><span
+>>>>>>> ff552c0f337124fd163b23a7bfad350ab65dafd1
         class="btn btn-primary">Go Back to Browse</span></a>
 </div>
 </body>

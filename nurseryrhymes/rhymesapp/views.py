@@ -1,23 +1,26 @@
 from django.conf import settings
-#import stripe
+# import stripe
 from django.contrib.auth import login, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
-from django.views.generic import TemplateView
-
-from .models import *
-from .forms import *
-from .forms import RegisterForm
+from django.contrib.auth.forms import PasswordChangeForm
+from django.views.generic.base import TemplateView
 from django.contrib.auth.models import User
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
-from .forms import ContactForm
-from django.contrib.auth.forms import PasswordChangeForm
-from .forms import EditProfileForm
 
+from .forms import *
+from .forms import ContactForm
+from .forms import EditProfileForm
+from .forms import RegisterForm
+from .models import *
+from django.shortcuts import render # new
+import stripe # new
 
 
 now = timezone.now()
+stripe.api_key = settings.STRIPE_SECRET_KEY # new
+
 
 
 def home(request):
@@ -25,7 +28,6 @@ def home(request):
                  {'rhymesapp': home})
 
 
-#@login_required
 def audio_list(request):
     return render(request, 'rhymesapp/audio_list.html',
                  {'rhymesapp': audio_list})
@@ -42,65 +44,103 @@ def register(request):
     return render(request, 'rhymesapp/register.html', {'rhymesapp': register})
 
 
+def rhymes_list(request):
+    return render(request, 'rhymesapp/rhymes_list.html', {'rhymesapp': rhymes_list})
 
-def nurseryList(request):
-    return render(request, 'rhymesapp/nurseryList.html', {'rhymesapp': nurseryList})
+@login_required(login_url='login/')
 def londonBridge(request):
     return render(request, 'rhymesapp/londonBridge.html', {'rhymesapp': londonBridge})
+
+@login_required(login_url='login/')
 def littleStar(request):
     return render(request, 'rhymesapp/littleStar.html', {'rhymesapp': littleStar})
+
+
 def jackJill(request):
     return render(request, 'rhymesapp/jackJill.html', {'rhymesapp': jackJill})
+
+@login_required(login_url='login/')
 def itsySpider(request):
     return render(request, 'rhymesapp/itsySpider.html', {'rhymesapp': itsySpider})
+
+
 def humptyDumpty(request):
     return render(request, 'rhymesapp/humptyDumpty.html', {'rhymesapp': humptyDumpty})
+
+
 def hickoryDock(request):
     return render(request, 'rhymesapp/hickoryDock.html', {'rhymesapp': humptyDumpty})
+
+@login_required(login_url='login/')
 def blackSheep(request):
     return render(request, 'rhymesapp/blackSheep.html', {'rhymesapp': blackSheep})
+
+@login_required(login_url='login/')
 def heyDiddle(request):
     return render(request, 'rhymesapp/heyDiddle.html', {'rhymesapp': heyDiddle})
+
+@login_required(login_url='login/')
 def hotBuns(request):
     return render(request, 'rhymesapp/hotBuns.html', {'rhymesapp': hotBuns})
+
+@login_required(login_url='login/')
 def jackNimble(request):
     return render(request, 'rhymesapp/jackNimble.html', {'rhymesapp': jackNimble})
+
+@login_required(login_url='login/')
 def market(request):
-    return render(request, 'rhymesapp/market.hmtl', {'rhymesapp': market})
+    return render(request, 'rhymesapp/market.html', {'rhymesapp': market})
+
+@login_required(login_url='login/')
 def muffins(request):
     return render(request, 'rhymesapp/muffins.html', {'rhymesapp': muffins})
+
+@login_required(login_url='login/')
 def peterPiper(request):
     return render(request, 'rhymesapp/peterPiper.html', {'rhymesapp': peterPiper})
+
+@login_required(login_url='login/')
 def piggy(request):
     return render(request, 'rhymesapp/piggy.html', {'rhymesapp': piggy})
+
+@login_required(login_url='login/')
 def rainPour(request):
     return render(request, 'rhymesapp/rainPour.html', {'rhymesapp': rainPour})
+
+@login_required(login_url='login/')
 def ringPosies(request):
     return render(request, 'rhymesapp/ringPosies.html', {'rhymesapp': ringPosies})
+
+@login_required(login_url='login/')
 def roses(request):
     return render(request, 'rhymesapp/roses.html', {'rhymesapp': roses})
+
+@login_required(login_url='login/')
 def rowBoat(request):
     return render(request, 'rhymesapp/rowBoat.html', {'rhymesapp': rowBoat})
+
+@login_required(login_url='login/')
 def sticks(request):
     return render(request, 'rhymesapp/sticks.html', {'rhymesapp': sticks})
+
+@login_required(login_url='login/')
 def threeMice(request):
     return render(request, 'rhymesapp/threeMice.html', {'rhymesapp': threeMice})
+
+@login_required(login_url='login/')
 def tweedle(request):
     return render(request, 'rhymesapp/tweedle.html', {'rhymesapp': tweedle})
 
 
-#@login_required
-def upgrade(request):
-    return render(request, 'rhymesapp/upgrade.html', {'rhymesapp': upgrade})
-
-
-class HomePageView(TemplateView):
+class upgradeView(TemplateView):
     template_name = 'rhymesapp/upgrade.html'
 
-    def get_context_data(self, **kwargs): # new
+    def get_context_data(self, **kwargs):  # new
         context = super().get_context_data(**kwargs)
         context['key'] = settings.STRIPE_PUBLISHABLE_KEY
         return context
+    # return render(request, 'rhymesapp/upgrade.html', {'rhymesapp': upgrade})
+
 
 def account_created(request):
     return render(request, 'rhymesapp/account_created.html', {'rhymesapp': account_created})
@@ -108,8 +148,6 @@ def account_created(request):
 
 def email(request):
     return render(request, 'rhymesapp/contact.html', {'rhymesapp': email})
-
-
 
 
 def success(request):
@@ -226,6 +264,10 @@ def rhymes_list(request):
     if 'Search' in request.GET:
         search_term = request.GET['Search']
         rhymes = rhymes.filter(name__icontains=search_term)
-    return render(request, 'rhymesapp/rhyme_list.html', {'rhymes': rhymes, 'search_term': search_term})
+    return render(request, 'rhymesapp/rhymes_list.html', {'rhymes': rhymes, 'search_term': search_term})
 
 
+def charge(request):
+    if request.method == 'POST':
+
+        return render(request, 'rhymesapp/charge.html')

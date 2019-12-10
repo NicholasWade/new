@@ -40,7 +40,7 @@
   display:none;
 }
 
-.test {
+.payment {
   padding-top: 20px;
   padding-right: 611px;
 }
@@ -173,8 +173,10 @@
     </tbody>
   </table>
 
-  <div class = 'test'>
+  <div class = 'payment'>
     <form action="/charge" method="post">
+          {% csrf_token %}
+
         <script
         src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="{{ key }}"
@@ -184,6 +186,7 @@
       </script>
     </form>
   </div>
+
 
 
 

@@ -8,7 +8,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     re_path(r'^home/$', views.home, name='home'),
     path('audio_list', views.audio_list, name='audio_list'),
-    path('nurseryList', views.nurseryList, name='nurseryList'),
+    path('rhymes_list', views.rhymes_list, name='rhymes_list'),
     path('account_information', views.infoView, name='account_information'),
     path('londonBridge', views.londonBridge, name = 'londonBridge'),
     path('littleStar', views.littleStar, name = 'littleStar'),
@@ -32,7 +32,7 @@ urlpatterns = [
     path('sticks', views.sticks, name='sticks'),
     path('threeMice', views.threeMice, name='threeMice'),
     path('tweedle', views.tweedle, name='tweedle'),
-    path('upgrade', views.upgrade, name='upgrade'),
+    path('upgrade', views.upgradeView.as_view(), name='upgrade'),
     path('account_created', views.account_created, name='account_created'),
     url(r'^register/$', views.user_register, name='user_register'),
     url(r'^register/account_created/$', views.account_created, name='account_created'),
@@ -43,7 +43,8 @@ urlpatterns = [
     url(r'^change_password/$', views.change_password, name='change_password'),
     url(r'^login/reset_password/$', PasswordResetView.as_view(), {'template_name': 'rhymesapp/reset_password.html'}, name='PasswordResetView'),
     url(r'^login/reset_password/done/$', PasswordResetDoneView.as_view(), name='PasswordResetDoneView'),
-    url(r'^login/reset_password/confirm/$',PasswordResetConfirmView.as_view(), name='PasswordResetConfirmView'),
+    url(r'^login/reset_password/confirm/$', PasswordResetConfirmView.as_view(), name='PasswordResetConfirmView'),
+    path('charge', views.charge, name='charge'),
 
 ]
 # (?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/
