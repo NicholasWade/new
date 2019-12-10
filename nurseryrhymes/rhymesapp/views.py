@@ -268,7 +268,7 @@ def change_password(request):
         args = {'form': form}
         return render(request, 'rhymesapp/change_password.html', args)
 
-#SUJU PLEASE
+
 def rhymes_list(request):
     search_term=''
     rhymes = Rhyme.objects.filter()
