@@ -17,7 +17,6 @@ from .forms import RegisterForm
 from .models import *
 from django.shortcuts import render # new
 import stripe # new
-#PLEASE SUJU
 
 now = timezone.now()
 stripe.api_key = settings.STRIPE_SECRET_KEY # new
