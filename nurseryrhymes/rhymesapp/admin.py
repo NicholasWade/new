@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Rhyme
+from .models import Rhyme, Customer
 
 from .models import Account
 
@@ -13,3 +13,5 @@ class AccountList(admin.ModelAdmin):
 
 admin.site.register(Account)
 admin.site.register(Rhyme)
+admin.site.register(Customer)
+

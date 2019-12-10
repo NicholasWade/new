@@ -1,13 +1,15 @@
 from django.conf import settings
 # import stripe
 from django.contrib.auth import login, update_session_auth_hash
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.forms import PasswordChangeForm
+from django.core.exceptions import PermissionDenied
 from django.views.generic.base import TemplateView
 from django.contrib.auth.models import User
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
+from .models import Customer
 
 from .forms import *
 from .forms import ContactForm
@@ -69,7 +71,16 @@ def humptyDumpty(request):
 
 
 def hickoryDock(request):
-    return render(request, 'rhymesapp/hickoryDock.html', {'rhymesapp': humptyDumpty})
+    if Rhyme.premium:
+        if request.user.is_authenticated:
+            try:
+                if request.user.customer.membership:
+                    return render(request, 'rhymesapp/hickoryDock.html', {'rhymesapp': humptyDumpty})
+            except Customer.DoesNotExist:
+                return redirect('home/')
+        return redirect('home/')
+    else:
+        return render(request, 'rhymesapp/hickoryDock.html', {'rhymesapp': humptyDumpty})
 
 @login_required(login_url='login/')
 def blackSheep(request):
@@ -267,7 +278,15 @@ def rhymes_list(request):
     return render(request, 'rhymesapp/rhymes_list.html', {'rhymes': rhymes, 'search_term': search_term})
 
 
+
+
 def charge(request):
     if request.method == 'POST':
-
+        stripe_customer = stripe.Customer.create(email=request.user.email, source=request.POST['stripeToken'])
+        customer = Customer()
+        customer.user = request.user
+        customer.stripeid = stripe_customer.stripe_id
+        customer.membership = True
+        customer.cancel_at_period_end = False
+        customer.save()
         return render(request, 'rhymesapp/charge.html')
