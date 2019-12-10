@@ -1,11 +1,32 @@
 {% extends 'rhymesapp/base.html' %}
 {% block content %}
-{% load crispy_forms_tags %}
+
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Membership</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    </head>
+    <body>
     <style>
         body {
             background-color: #F3EBF6;
         }
     </style>
-<h1>Thanks for your support!</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Welcome Premium Rhyme Member!</div>
+                    <div class="panel-body">
+                        Congratulations on being a rhyme member! Enjoy your premium features and unlimited rhymes. Don't forget to subscribe next year. We hope you will keep supporting us and all the best to you and your child.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    </body>
+    </html>
 {% endblock %}

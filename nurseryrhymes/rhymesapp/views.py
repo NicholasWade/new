@@ -49,98 +49,269 @@ def register(request):
 def rhymes_list(request):
     return render(request, 'rhymesapp/rhymes_list.html', {'rhymesapp': rhymes_list})
 
-@login_required(login_url='login/')
+
 def londonBridge(request):
-    return render(request, 'rhymesapp/londonBridge.html', {'rhymesapp': londonBridge})
-
-@login_required(login_url='login/')
-def littleStar(request):
-    return render(request, 'rhymesapp/littleStar.html', {'rhymesapp': littleStar})
-
-
-def jackJill(request):
-    return render(request, 'rhymesapp/jackJill.html', {'rhymesapp': jackJill})
-
-@login_required(login_url='login/')
-def itsySpider(request):
-    return render(request, 'rhymesapp/itsySpider.html', {'rhymesapp': itsySpider})
-
-
-def humptyDumpty(request):
-    return render(request, 'rhymesapp/humptyDumpty.html', {'rhymesapp': humptyDumpty})
-
-
-def hickoryDock(request):
     if Rhyme.premium:
         if request.user.is_authenticated:
             try:
                 if request.user.customer.membership:
-                    return render(request, 'rhymesapp/hickoryDock.html', {'rhymesapp': humptyDumpty})
+                    return render(request, 'rhymesapp/londonBridge.html', {'rhymesapp': londonBridge})
             except Customer.DoesNotExist:
-                return redirect('home/')
-        return redirect('home/')
+                return redirect('/upgrade')
+        return redirect('/upgrade')
     else:
-        return render(request, 'rhymesapp/hickoryDock.html', {'rhymesapp': humptyDumpty})
+        return render(request, 'rhymesapp/londonBridge.html', {'rhymesapp': londonBridge})
 
-@login_required(login_url='login/')
+
+def littleStar(request):
+    if Rhyme.premium:
+        if request.user.is_authenticated:
+            try:
+                if request.user.customer.membership:
+                    return render(request, 'rhymesapp/littleStar.html', {'rhymesapp': littleStar})
+            except Customer.DoesNotExist:
+                return redirect('/upgrade')
+        return redirect('/upgrade')
+    else:
+        return render(request, 'rhymesapp/littleStar.html', {'rhymesapp': littleStar})
+
+
+def jackJill(request):
+    if Rhyme.premium:
+        if request.user.is_authenticated:
+            try:
+                if request.user.customer.membership:
+                    return render(request, 'rhymesapp/jackJill.html', {'rhymesapp': jackJill})
+            except Customer.DoesNotExist:
+                return redirect('/upgrade')
+        return redirect('/upgrade')
+    else:
+        return render(request, 'rhymesapp/jackJill.html', {'rhymesapp': jackJill})
+
+
+def itsySpider(request):
+    if Rhyme.premium:
+        if request.user.is_authenticated:
+            try:
+                if request.user.customer.membership:
+                    return render(request, 'rhymesapp/itsySpider.html', {'rhymesapp': itsySpider})
+            except Customer.DoesNotExist:
+                return redirect('/upgrade')
+        return redirect('/upgrade')
+    else:
+        return render(request, 'rhymesapp/itsySpider.html', {'rhymesapp': itsySpider})
+
+
+def humptyDumpty(request):
+    if Rhyme.premium:
+        if request.user.is_authenticated:
+            try:
+                if request.user.customer.membership:
+                    return render(request, 'rhymesapp/humptyDumpty.html', {'rhymesapp': humptyDumpty})
+            except Customer.DoesNotExist:
+                return redirect('/upgrade')
+        return redirect('/upgrade')
+    else:
+        return render(request, 'rhymesapp/humptyDumpty.html', {'rhymesapp': humptyDumpty})
+
+
+def hickoryDock(request):
+    return render(request, 'rhymesapp/hickoryDock.html', {'rhymesapp': humptyDumpty})
+
+
 def blackSheep(request):
-    return render(request, 'rhymesapp/blackSheep.html', {'rhymesapp': blackSheep})
+    if Rhyme.premium:
+        if request.user.is_authenticated:
+            try:
+                if request.user.customer.membership:
+                    return render(request, 'rhymesapp/blackSheep.html', {'rhymesapp': blackSheep})
+            except Customer.DoesNotExist:
+                return redirect('/upgrade')
+        return redirect('/upgrade')
+    else:
+        return render(request, 'rhymesapp/blackSheep.html', {'rhymesapp': blackSheep})
 
-@login_required(login_url='login/')
+
 def heyDiddle(request):
-    return render(request, 'rhymesapp/heyDiddle.html', {'rhymesapp': heyDiddle})
+    if Rhyme.premium:
+        if request.user.is_authenticated:
+            try:
+                if request.user.customer.membership:
+                    return render(request, 'rhymesapp/heyDiddle.html', {'rhymesapp': heyDiddle})
+            except Customer.DoesNotExist:
+                return redirect('/upgrade')
+        return redirect('/upgrade')
+    else:
+        return render(request, 'rhymesapp/heyDiddle.html', {'rhymesapp': heyDiddle})
 
-@login_required(login_url='login/')
+
 def hotBuns(request):
-    return render(request, 'rhymesapp/hotBuns.html', {'rhymesapp': hotBuns})
+    if Rhyme.premium:
+        if request.user.is_authenticated:
+            try:
+                if request.user.customer.membership:
+                    return render(request, 'rhymesapp/hotBuns.html', {'rhymesapp': hotBuns})
+            except Customer.DoesNotExist:
+                return redirect('/upgrade')
+        return redirect('/upgrade')
+    else:
+        return render(request, 'rhymesapp/hotBuns.html', {'rhymesapp': hotBuns})
 
-@login_required(login_url='login/')
+
 def jackNimble(request):
-    return render(request, 'rhymesapp/jackNimble.html', {'rhymesapp': jackNimble})
+    if Rhyme.premium:
+        if request.user.is_authenticated:
+            try:
+                if request.user.customer.membership:
+                    return render(request, 'rhymesapp/jackNimble.html', {'rhymesapp': jackNimble})
+            except Customer.DoesNotExist:
+                return redirect('/upgrade')
+        return redirect('/upgrade')
+    else:
+        return render(request, 'rhymesapp/jackNimble.html', {'rhymesapp': jackNimble})
 
-@login_required(login_url='login/')
+
 def market(request):
-    return render(request, 'rhymesapp/market.html', {'rhymesapp': market})
+    if Rhyme.premium:
+        if request.user.is_authenticated:
+            try:
+                if request.user.customer.membership:
+                    return render(request, 'rhymesapp/market.html', {'rhymesapp': market})
+            except Customer.DoesNotExist:
+                return redirect('/upgrade')
+        return redirect('/upgrade')
+    else:
+        return render(request, 'rhymesapp/market.html', {'rhymesapp': market})
 
-@login_required(login_url='login/')
+
 def muffins(request):
-    return render(request, 'rhymesapp/muffins.html', {'rhymesapp': muffins})
+    if Rhyme.premium:
+        if request.user.is_authenticated:
+            try:
+                if request.user.customer.membership:
+                    return render(request, 'rhymesapp/muffins.html', {'rhymesapp': muffins})
+            except Customer.DoesNotExist:
+                return redirect('/upgrade')
+        return redirect('/upgrade')
+    else:
+        return render(request, 'rhymesapp/muffins.html', {'rhymesapp': muffins})
 
-@login_required(login_url='login/')
+
 def peterPiper(request):
-    return render(request, 'rhymesapp/peterPiper.html', {'rhymesapp': peterPiper})
+    if Rhyme.premium:
+        if request.user.is_authenticated:
+            try:
+                if request.user.customer.membership:
+                    return render(request, 'rhymesapp/peterPiper.html', {'rhymesapp': peterPiper})
+            except Customer.DoesNotExist:
+                return redirect('/upgrade')
+        return redirect('/upgrade')
+    else:
+        return render(request, 'rhymesapp/peterPiper.html', {'rhymesapp': peterPiper})
 
-@login_required(login_url='login/')
+
 def piggy(request):
-    return render(request, 'rhymesapp/piggy.html', {'rhymesapp': piggy})
+    if Rhyme.premium:
+        if request.user.is_authenticated:
+            try:
+                if request.user.customer.membership:
+                    return render(request, 'rhymesapp/piggy.html', {'rhymesapp': piggy})
+            except Customer.DoesNotExist:
+                return redirect('/upgrade')
+        return redirect('/upgrade')
+    else:
+        return render(request, 'rhymesapp/piggy.html', {'rhymesapp': piggy})
 
-@login_required(login_url='login/')
+
 def rainPour(request):
-    return render(request, 'rhymesapp/rainPour.html', {'rhymesapp': rainPour})
+    if Rhyme.premium:
+        if request.user.is_authenticated:
+            try:
+                if request.user.customer.membership:
+                    return render(request, 'rhymesapp/rainPour.html', {'rhymesapp': rainPour})
+            except Customer.DoesNotExist:
+                return redirect('/upgrade')
+        return redirect('/upgrade')
+    else:
+        return render(request, 'rhymesapp/rainPour.html', {'rhymesapp': rainPour})
 
-@login_required(login_url='login/')
+
 def ringPosies(request):
-    return render(request, 'rhymesapp/ringPosies.html', {'rhymesapp': ringPosies})
+    if Rhyme.premium:
+        if request.user.is_authenticated:
+            try:
+                if request.user.customer.membership:
+                    return render(request, 'rhymesapp/ringPosies.html', {'rhymesapp': ringPosies})
+            except Customer.DoesNotExist:
+                return redirect('/upgrade')
+        return redirect('/upgrade')
+    else:
+        return render(request, 'rhymesapp/ringPosies.html', {'rhymesapp': ringPosies})
 
-@login_required(login_url='login/')
+
 def roses(request):
-    return render(request, 'rhymesapp/roses.html', {'rhymesapp': roses})
+    if Rhyme.premium:
+        if request.user.is_authenticated:
+            try:
+                if request.user.customer.membership:
+                    return render(request, 'rhymesapp/roses.html', {'rhymesapp': roses})
+            except Customer.DoesNotExist:
+                return redirect('/upgrade')
+        return redirect('/upgrade')
+    else:
+        return render(request, 'rhymesapp/roses.html', {'rhymesapp': roses})
 
-@login_required(login_url='login/')
+
 def rowBoat(request):
-    return render(request, 'rhymesapp/rowBoat.html', {'rhymesapp': rowBoat})
+    if Rhyme.premium:
+        if request.user.is_authenticated:
+            try:
+                if request.user.customer.membership:
+                    return render(request, 'rhymesapp/rowBoat.html', {'rhymesapp': rowBoat})
+            except Customer.DoesNotExist:
+                return redirect('/upgrade')
+        return redirect('/upgrade')
+    else:
+        return render(request, 'rhymesapp/rowBoat.html', {'rhymesapp': rowBoat})
 
-@login_required(login_url='login/')
+
 def sticks(request):
-    return render(request, 'rhymesapp/sticks.html', {'rhymesapp': sticks})
+    if Rhyme.premium:
+        if request.user.is_authenticated:
+            try:
+                if request.user.customer.membership:
+                    return render(request, 'rhymesapp/sticks.html', {'rhymesapp': sticks})
+            except Customer.DoesNotExist:
+                return redirect('/upgrade')
+        return redirect('/upgrade')
+    else:
+        return render(request, 'rhymesapp/sticks.html', {'rhymesapp': sticks})
 
-@login_required(login_url='login/')
+
 def threeMice(request):
-    return render(request, 'rhymesapp/threeMice.html', {'rhymesapp': threeMice})
+    if Rhyme.premium:
+        if request.user.is_authenticated:
+            try:
+                if request.user.customer.membership:
+                    return render(request, 'rhymesapp/threeMice.html', {'rhymesapp': threeMice})
+            except Customer.DoesNotExist:
+                return redirect('/upgrade')
+        return redirect('/upgrade')
+    else:
+        return render(request, 'rhymesapp/threeMice.html', {'rhymesapp': threeMice})
 
-@login_required(login_url='login/')
+
 def tweedle(request):
-    return render(request, 'rhymesapp/tweedle.html', {'rhymesapp': tweedle})
+    if Rhyme.premium:
+        if request.user.is_authenticated:
+            try:
+                if request.user.customer.membership:
+                    return render(request, 'rhymesapp/tweedle.html', {'rhymesapp': tweedle})
+            except Customer.DoesNotExist:
+                return redirect('/upgrade')
+        return redirect('/upgrade')
+    else:
+        return render(request, 'rhymesapp/tweedle.html', {'rhymesapp': tweedle})
 
 
 class upgradeView(TemplateView):
