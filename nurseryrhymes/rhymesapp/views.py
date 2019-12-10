@@ -1,5 +1,4 @@
 from django.conf import settings
-# import stripe
 from django.contrib.auth import login, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
@@ -15,11 +14,9 @@ from .forms import EditProfileForm
 from .forms import RegisterForm
 from .models import *
 from django.shortcuts import render # new
-import stripe # new
 
 
 now = timezone.now()
-stripe.api_key = settings.STRIPE_SECRET_KEY # new
 
 
 
