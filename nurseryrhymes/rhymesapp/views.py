@@ -448,7 +448,6 @@ def rhymes_list(request):
 
 
 
-
 def charge(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
