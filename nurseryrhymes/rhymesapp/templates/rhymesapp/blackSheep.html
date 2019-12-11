@@ -36,6 +36,7 @@
     }
 </style>
 <div class="content container" id="rhymeText">
+    <img src="{% static "images/blacksheep.jpg" %}" alt="Ba Ba Black Sheep" width="500" height="300">
     <h2>Ba Ba Black Sheep</h2>
     <font size = "4">
 	    Baa, baa, black sheep, have you any wool?<br>
@@ -71,12 +72,15 @@
 </div>
 <br>
 <div class="links">
+    <a href="{% url 'rhymesapp:rhymes_list' %}" class="row" id="button2"><span
+        class="btn btn-success">Go Back to Browse</span></a>
+
+    <br>
+
     <a href="{% url 'rhymesapp:home' %}" class="row" id="button1"><span
         class="btn btn-success">Go Home</span></a>
     <br>
 
-    <a href="{% url 'rhymesapp:rhymes_list' %}" class="row" id="button2"><span
-        class="btn btn-success">Go Back to Browse</span></a>
 </div>
 </body>
 </html>
