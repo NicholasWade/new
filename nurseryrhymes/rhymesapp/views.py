@@ -441,9 +441,6 @@ def rhymes_list(request):
 
 def charge(request):
     if request.user.is_authenticated:
-        if request.user.customer.membership:
-            return redirect('/rhymeslist')
-
         if request.method == 'POST':
             stripe_customer = stripe.Customer.create(email=request.user.email, source=request.POST['stripeToken'])
             customer = Customer()
@@ -453,6 +450,8 @@ def charge(request):
             customer.cancel_at_period_end = False
             customer.save()
             return render(request, 'rhymesapp/charge.html')
+
+
     else:
         return redirect('/login')
 
