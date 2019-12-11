@@ -8,9 +8,6 @@ from django.contrib.auth.models import User
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
-from .models import Customer
-
-from .forms import *
 from .forms import ContactForm
 from .forms import EditProfileForm
 from .forms import RegisterForm
@@ -18,7 +15,6 @@ from .models import *
 from django.shortcuts import render # new
 import stripe # new
 
-now = timezone.now()
 stripe.api_key = settings.STRIPE_SECRET_KEY # new
 
 
@@ -33,11 +29,7 @@ def audio_list(request):
                  {'rhymesapp': audio_list})
 
 
-@login_required
-def account_information(request):
-    account = Account.objects.filter(created_date__lte=timezone.now())
-    return render(request, 'rhymesapp/account_information.html',
-                 {'accounts': account})
+
 
 
 def register(request):

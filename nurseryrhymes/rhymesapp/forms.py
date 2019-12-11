@@ -1,14 +1,7 @@
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.contrib.auth.forms import User
-from .models import Account, Rhyme
+from .models import Rhyme
 from django import forms
-
-
-class AccountForm(forms.ModelForm):
-   class Meta:
-       model = Account
-       fields = ('first_name', 'last_name', 'phone', 'email', 'zipcode')
-
 
 
 
