@@ -3,7 +3,7 @@
 {% block title %}Contact Us Success{% endblock %}
 
 {% block css %}
-<style>
+    <style>
         body {
             background-color: #F3EBF6;
         }
@@ -11,10 +11,11 @@
 {% endblock %}
 
 {% block content %}
-    <h2 class="title">Thanks!</h2>
+    <h1 class="title">Thank you!</h1>
 
-    <p>We appreciate your feedback.<br />
-    Someone from the team will be in touch with you shortly.</p>
+    <h3>We appreciate your feedback.<br />
+    Someone from the team will be in touch with you shortly.</h3>
 
-    <div><a href="/">Home Page</a></div>
+    <a href="{% url 'rhymesapp:home' %}" class="row" id="button1"><span
+        class="btn btn-success">Go Home</span></a>
 {% endblock %}
