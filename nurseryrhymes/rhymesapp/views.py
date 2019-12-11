@@ -454,5 +454,5 @@ def charge(request):
             customer.save()
             return render(request, 'rhymesapp/charge.html')
     else:
-        return redirect('/register')
+        return redirect('/login')
 
