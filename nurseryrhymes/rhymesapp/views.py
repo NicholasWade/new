@@ -31,7 +31,6 @@ def audio_list(request):
 
 
 
-
 def register(request):
     return render(request, 'rhymesapp/register.html', {'rhymesapp': register})
 
